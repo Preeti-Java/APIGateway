@@ -1,0 +1,19 @@
+server:
+  port: 80
+  
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          route-id-prefix: service1
+          url-expression: http://localhost:8081/service1/
+          predicates:
+            - name: Path
+            - args:
+               name: "'/'+serviceId+'/**'" 
+               
+                
+                
+            
